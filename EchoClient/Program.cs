@@ -17,6 +17,13 @@ namespace EchoClient
                     using (TcpClient tcpClient = new TcpClient())
                     {
                         tcpClient.Connect("127.0.0.1", 7777);
+                        
+                        if (!tcpClient.Connected)
+                        {
+                            Console.WriteLine("Сервер отклонил подключение.");
+                            break;
+                        }
+
                         Console.WriteLine("Подключено!");
                         Console.WriteLine("Введите ваше сообщение. Для выхода введите 'exit'");
                         Console.WriteLine("Для подтверждения отправки введите Enter на пустой строке.");
